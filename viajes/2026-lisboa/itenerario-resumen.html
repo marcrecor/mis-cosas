@@ -212,6 +212,23 @@
       box-shadow: var(--shadow);
     }
 
+    .accommodation h3 {
+      margin: 12px 0 0;
+      font-size: 1.15rem;
+    }
+
+    .accommodation p {
+      margin: 7px 0 0;
+    }
+
+    .parking-callout {
+      margin-top: 15px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      background: var(--surface-muted);
+    }
+
     .day-heading {
       display: flex;
       align-items: baseline;
@@ -432,6 +449,7 @@
         </button>
       </div>
       <nav class="quick-nav" aria-label="Secciones de la página">
+        <a href="#alojamiento">Alojamiento</a>
         <a href="#sabado">Sábado</a>
         <a href="#domingo">Domingo</a>
         <a href="#lunes">Lunes</a>
@@ -445,6 +463,26 @@
     </header>
 
     <main>
+      <section class="panel accommodation" id="alojamiento" aria-labelledby="alojamiento-title">
+        <h2 id="alojamiento-title">Alojamiento · Bairro Alto</h2>
+        <h3>Portas Do Bairro</h3>
+        <p>
+          <a href="https://maps.app.goo.gl/JGGdbfu1UzU3XHqE9" target="_blank" rel="noopener">
+            34 Travessa dos Fiéis de Deus, Misericórdia, 1200-190 Lisboa
+          </a>
+        </p>
+        <p>
+          Nos alojamos en la parte alta del centro histórico, sobre el Chiado. De día suele ser un barrio tranquilo;
+          por la noche se llena de bares y puede haber ruido hasta tarde.
+        </p>
+        <div class="parking-callout">
+          Varias calles interiores tienen acceso de coche limitado o controlado: no intentemos llegar en coche hasta la
+          puerta. Dejamos los vehículos en el <a href="https://maps.app.goo.gl/hWr4DrCwcYw2DCMB8" target="_blank"
+            rel="noopener">Estacionamento Calçada do Combro</a> (entre Calçada do Combro 93 y Tv. André Valente 7 e),
+          abierto las 24 horas, por 13 € al día; desde allí vamos andando con el equipaje.
+        </div>
+      </section>
+
       <section class="day" id="sabado" aria-labelledby="sabado-title">
         <div class="day-heading">
           <h2 id="sabado-title">Sábado 5 · Belém, Baixa y Navidad</h2>
