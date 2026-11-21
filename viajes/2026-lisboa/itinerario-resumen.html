@@ -421,10 +421,36 @@
       }
 
     }
-  </style>
+  
+    .site-switch {
+      width: min(100% - 32px, 900px);
+      margin: 14px auto 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+      font: 600 .84rem/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .site-switch a {
+      display: inline-block;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      text-decoration: none;
+    }
+    .site-switch a[aria-current="page"] {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+</style>
 </head>
 
 <body>
+  <nav class="site-switch" aria-label="Versión del itinerario"><a href="./" aria-current="page">Resumen</a><a href="./completo/">Itinerario completo</a></nav>
+  
   <div class="page">
     <header>
       <div class="header-row">
