@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "viajes/2026-lisboa/itinerario-resumen.html"
-      - "viajes/2026-lisboa/itinerario-completo.html"
-      - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
 permissions:
