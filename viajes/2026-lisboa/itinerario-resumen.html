@@ -353,7 +353,7 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .entries li:last-child {
+    .entries li.confirmed::before { content: ""; display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-right: 2px; }\n\n    .entries li:last-child {
       border-bottom: 0;
     }
 
@@ -373,6 +373,28 @@
       color: var(--muted);
       font-size: .86rem;
     }
+
+
+    .food-panel h3 { margin: 22px 0 12px; }
+    .food-panel .card {
+      padding: 18px 20px;
+      margin: 0 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface-muted);
+    }
+    .food-panel .lead { color: var(--muted); margin: 0 0 18px; }
+    .food-panel .tips { margin: 0; padding-left: 20px; }
+    .food-panel .tips li { margin: 6px 0; }
+    .food-panel .meal {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .food-panel .meal .card { margin: 0; }
+    .food-panel .meal h4 { margin: 0; font-size: 1.05rem; }
+    .food-panel .meal p { margin: 4px 0 0; color: var(--muted); font-size: .92rem; }
+    .food-panel .star { color: var(--accent); font-weight: 700; }
 
     .map-panel {
       padding: 0;
@@ -421,36 +443,10 @@
       }
 
     }
-  
-    .site-switch {
-      width: min(100% - 32px, 900px);
-      margin: 14px auto 0;
-      display: flex;
-      justify-content: flex-end;
-      gap: 8px;
-      flex-wrap: wrap;
-      font: 600 .84rem/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .site-switch a {
-      display: inline-block;
-      padding: 8px 13px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: var(--surface);
-      text-decoration: none;
-    }
-    .site-switch a[aria-current="page"] {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--accent-soft);
-    }
 </style>
 </head>
 
 <body>
-  <nav class="site-switch" aria-label="Versión del itinerario"><a href="./" aria-current="page">Resumen</a><a href="./completo/">Itinerario completo</a></nav>
-  
   <div class="page">
     <header>
       <div class="header-row">
@@ -480,6 +476,7 @@
         <a href="#domingo">Domingo</a>
         <a href="#lunes">Lunes</a>
         <a href="#entradas">Entradas</a>
+        <a href="#comidas">Comidas y bebidas</a>
         <a href="#mapa">Mapa</a>
       </nav>
       <div class="key" aria-label="Leyenda de estados">
@@ -599,6 +596,7 @@
         <section class="panel" id="entradas" aria-labelledby="entradas-title">
           <h2 id="entradas-title">Entradas a monumentos</h2>
           <ul class="entries">
+            <li class="confirmed"><span>Igreja de São Domingos</span><span class="price">Gratis</span></li>
             <li><span>Mosteiro dos Jerónimos <span class="star" aria-label="Favorito">★</span></span><span
                 class="price">18 €</span></li>
             <li><span>Convento do Carmo</span><span class="price">7 €</span></li>
@@ -612,6 +610,153 @@
           <p class="entries-note"><span class="star">★</span> Favoritos · Todas las entradas están pendientes de
             decidir.</p>
         </section>
+
+        <section class="panel" id="comidas" class="panel food-panel">
+        <h2>Comidas y bebidas</h2>
+
+        <h3>Las 7 Maravillas de la Gastronomía portuguesa</h3>
+        <div class="card">
+          <p>Esta selección se hizo en 2011 mediante una votación nacional. Son siete platos ganadores de seis
+            categorías: «Entradas» tuvo dos premiados. Representan distintas regiones, no solo Lisboa. El pastel de
+            Belém, por ejemplo, es lisboeta y lo probamos en la
+            <a href="#sabado">parada de Belém</a>.
+          </p>
+          <ul class="tips">
+            <li><b>Entradas · Alheira de Mirandela:</b> embutido ahumado tradicional de Trás-os-Montes.</li>
+            <li><b>Entradas · Queijo Serra da Estrela:</b> queso cremoso de oveja de la sierra del mismo nombre.</li>
+            <li><b>Sopa · Caldo verde:</b> sopa de patata y col rizada.</li>
+            <li><b>Pescado · Sardinha assada:</b> sardina asada, muy popular en las fiestas de junio.</li>
+            <li><b>Marisco · Arroz de marisco:</b> arroz caldoso con mariscos.</li>
+            <li><b>Carne · Leitão da Bairrada:</b> cochinillo asado de la región de Bairrada.</li>
+            <li><b>Dulces · Pastel de Belém:</b> la tartaleta de crema de la pastelería de Belém. Lo probamos en la
+              <a href="#sabado">parada de Belém del sábado</a>.
+            </li>
+          </ul>
+        </div>
+
+
+        <p class="lead">Lo que hay que probar en Portugal y, sobre todo, en Lisboa. Marcado con ★ lo imprescindible.</p>
+
+        <h3>Dulces y cafés</h3>
+        <div class="meal">
+          <div class="card">
+            <h4><span class="star">★</span> Pastel de nata</h4>
+            <p>Tartaleta de hojaldre con crema de huevo y canela. En Belém se llama "pastel de Belém".</p>
+          </div>
+          <div class="card">
+            <h4>Travesseiro de Sintra</h4>
+            <p>Hojaldre relleno de crema de almendra y huevo.</p>
+          </div>
+          <div class="card">
+            <h4>Queijada de Sintra</h4>
+            <p>Pastelito de queso fresco, canela y azúcar.</p>
+          </div>
+          <div class="card">
+            <h4>Arroz doce</h4>
+            <p>Arroz con leche con canela, a menudo con dibujos.</p>
+          </div>
+          <div class="card">
+            <h4>Ovos moles</h4>
+            <p>Yema dulce de Aveiro, en forma de conchas.</p>
+          </div>
+          <div class="card">
+            <h4>Bolo-rei / rabanadas</h4>
+            <p>Típicos de Navidad: roscón con frutas y torrijas portuguesas.</p>
+          </div>
+          <div class="card">
+            <h4><span class="star">★</span> Bica / galão / pingado</h4>
+            <p>Bica = expreso (en Lisboa). Galão = café largo con leche en vaso. Pingado = café con gota de leche.</p>
+          </div>
+        </div>
+
+        <h3>Platos principales</h3>
+        <div class="meal">
+          <div class="card">
+            <h4><span class="star">★</span> Bacalhau</h4>
+            <p>El bacalao es casi un símbolo nacional. Dicen que hay 365 recetas: à Brás, à Gomes de Sá, com natas,
+              pastéis de bacalhau (buñuelos).</p>
+          </div>
+          <div class="card">
+            <h4><span class="star">★</span> Bifana / Prego</h4>
+            <p>Bocadillo de cerdo marinado (bifana) o de ternera (prego). Rápido y barato.</p>
+          </div>
+          <div class="card">
+            <h4>Caldo verde</h4>
+            <p>Sopa de patata, col y chorizo, perfecta para el frío.</p>
+          </div>
+          <div class="card">
+            <h4>Sardinhas assadas</h4>
+            <p>Sardinas a la parrilla; de temporada en verano.</p>
+          </div>
+          <div class="card">
+            <h4>Amêijoas à Bulhão Pato</h4>
+            <p>Almejas con ajo, cilantro y limón.</p>
+          </div>
+          <div class="card">
+            <h4>Polvo à lagareiro</h4>
+            <p>Pulpo asado con aceite de oliva y patatas.</p>
+          </div>
+          <div class="card">
+            <h4>Arroz de marisco</h4>
+            <p>Arroz caldoso con marisco, más meloso que una paella.</p>
+          </div>
+          <div class="card">
+            <h4>Cataplana</h4>
+            <p>Guiso de pescado y marisco cocinado en una olla de cobre.</p>
+          </div>
+          <div class="card">
+            <h4>Alheira / Chouriço</h4>
+            <p>Embutidos típicos; la alheira es de carne de ave y pan.</p>
+          </div>
+          <div class="card">
+            <h4>Francesinha</h4>
+            <p>Sándwich contundente de Oporto, bañado en salsa. No es de Lisboa pero es famoso.</p>
+          </div>
+        </div>
+
+        <h3>Bebidas</h3>
+        <div class="meal">
+          <div class="card" id="comida-ginjinha">
+            <h4><span class="star">★</span> Ginjinha</h4>
+            <p>Licor de guindas. Se pide "com elas" (con fruta) o "sem elas". Muy típico del centro.</p>
+          </div>
+          <div class="card">
+            <h4>Vinho verde</h4>
+            <p>Vino joven y ligeramente burbujeante del norte, perfecto con marisco.</p>
+          </div>
+          <div class="card">
+            <h4>Vinho do Douro / Alentejo</h4>
+            <p>Tintos con cuerpo; el Douro es la cuna del oporto.</p>
+          </div>
+          <div class="card">
+            <h4>Vinho do Porto</h4>
+            <p>Vino dulce fortificado, ideal de postre.</p>
+          </div>
+          <div class="card">
+            <h4>Moscatel de Setúbal</h4>
+            <p>Vino dulce de las afueras de Lisboa.</p>
+          </div>
+          <div class="card">
+            <h4>Cerveza: Sagres y Super Bock</h4>
+            <p>En Lisboa, una caña pequeña se llama <i>imperial</i>.</p>
+          </div>
+          <div class="card">
+            <h4>Licor Beirão</h4>
+            <p>Licor de hierbas; a veces con hielo y limón.</p>
+          </div>
+        </div>
+
+        <h3>Cómo pedir</h3>
+        <div class="card">
+          <ul class="tips">
+            <li>Si te ponen en la mesa pan, queso, aceitunas o paté, <b>se cobra</b> (se llama <i>couvert</i>). Si no lo
+              quieres, dilo.</li>
+            <li>"A conta, por favor" = la cuenta. "Obrigado/a" = gracias.</li>
+            <li>Las porciones suelen ser grandes: muchas veces una <i>meia dose</i> (media ración) basta.</li>
+            <li>Los portugueses cenan sobre las 20:00; la cocina de muchos sitios cierra pronto.</li>
+          </ul>
+        </div>
+      </section>
 
         <section class="panel map-panel" id="mapa" aria-labelledby="map-title">
           <div class="map-heading">
