@@ -5,7 +5,8 @@ on:
     branches:
       - main
     paths:
-      - "docs/**"
+      - "viajes/2026-lisboa/itinerario-resumen.html"
+      - "viajes/2026-lisboa/itinerario-completo.html"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -28,13 +29,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare site
+        run: |
+          mkdir -p _site/completo
+          cp viajes/2026-lisboa/itinerario-resumen.html _site/index.html
+          cp viajes/2026-lisboa/itinerario-completo.html _site/completo/index.html
+
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: _site
 
       - name: Deploy
         id: deployment
