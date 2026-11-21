@@ -1,0 +1,48 @@
+name: Deploy Lisbon itinerary to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "viajes/2026-lisboa/itinerario-resumen.html"
+      - "viajes/2026-lisboa/itinerario-completo.html"
+      - ".github/workflows/deploy-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site/completo
+          cp viajes/2026-lisboa/itinerario-resumen.html _site/index.html
+          cp viajes/2026-lisboa/itinerario-completo.html _site/completo/index.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

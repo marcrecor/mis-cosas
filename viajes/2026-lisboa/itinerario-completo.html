@@ -841,10 +841,36 @@
         justify-self: start
       }
     }
-  </style>
+  
+    .site-switch {
+      width: min(100% - 32px, 900px);
+      margin: 14px auto 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+      font: 600 .84rem/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .site-switch a {
+      display: inline-block;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      text-decoration: none;
+    }
+    .site-switch a[aria-current="page"] {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+</style>
 </head>
 
 <body>
+  <nav class="site-switch" aria-label="Versión del itinerario"><a href="../">Resumen</a><a href="./" aria-current="page">Itinerario completo</a></nav>
+  
   <header class="top">
     <div class="wrap">
       <div class="topbar">
@@ -924,7 +950,7 @@
               <div>
                 <span class="pill red">Sintra</span><br>Traslado en tren, Uber/TVDE o nuestros coches (por decidir);
                 Pena y su parque, Castelo dos Mouros, centro histórico, Palácio Nacional, Biester y Regaleira. Noche de
-                fado (pendiente de decidir). <a data-go="dom">Ver día →</a>
+                fado, con cena en una casa de fado (propuesta: Cocheira Alentejana). <a data-go="dom">Ver día →</a>
               </div>
             </li>
             <li>
@@ -2000,7 +2026,7 @@
             <li>Biester Palace</li>
             <li class="pend">Palácio da Regaleira · entrada por decidir</li>
             <li>Vuelta a Lisboa</li>
-            <li class="pend">Noche · Espectáculo de fado (pendiente de decidir)</li>
+            <li>Noche · Fado y cena (propuesta: Cocheira Alentejana)</li>
           </ul>
           <div class="legend"><i class="p"></i>Entrada, transporte o actividad pendiente de decidir</div>
         </div>
@@ -2329,9 +2355,9 @@
           </div>
         </div>
 
-        <h3 id="dom-fado">Noche · Fado (pendiente de decidir)</h3>
+        <h3 id="dom-fado">Noche · Fado y cena</h3>
         <div class="say">
-          <p>Si volvemos con tiempo, podemos cerrar el día con fado. Esta música urbana portuguesa se asocia sobre todo
+          <p>Si volvemos con tiempo, podemos cerrar el día con fado y cena en una casa de fado. Como propuesta tenemos <a href="https://maps.app.goo.gl/d81BNEZna8vwJWhU8?g_st=ac" target="_blank" rel="noopener">Cocheira Alentejana</a>, donde podemos disfrutar de la actuación mientras cenamos. Esta música urbana portuguesa se asocia sobre todo
             a Lisboa y a barrios como Mouraria, Alfama y Bairro Alto. Entre las figuras más conocidas están Maria
             Severa, cantante del siglo XIX convertida en leyenda, y Amália Rodrigues, la artista que llevó el fado a
             públicos de todo el mundo durante el siglo XX.</p>
@@ -2343,9 +2369,7 @@
         <div class="box eye"><span class="bt">Normas del fado</span>Antes de empezar pueden pedir <i>"silêncio, que se
             vai cantar o fado"</i>. Durante las canciones el público guarda silencio y el servicio puede detenerse;
           comprobamos si la reserva incluye cena.</div>
-        <div class="warn"><b>Importante:</b> el fado sigue pendiente de decidir. Si lo mantenemos, reservamos con
-          antelación y escogemos entre cena con espectáculo o actuación; el recorrido por Sintra no debe hacernos llegar
-          tarde.</div>
+        <div class="warn"><b>Propuesta:</b> Cocheira Alentejana para ver fado mientras cenamos. Conviene consultar sus horarios y reservar con antelación; el recorrido por Sintra no debe hacernos llegar tarde.</div>
 
         <h3>Preguntas del día</h3>
         <div class="qs">

@@ -421,10 +421,36 @@
       }
 
     }
-  </style>
+  
+    .site-switch {
+      width: min(100% - 32px, 900px);
+      margin: 14px auto 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+      font: 600 .84rem/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .site-switch a {
+      display: inline-block;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--surface);
+      text-decoration: none;
+    }
+    .site-switch a[aria-current="page"] {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+</style>
 </head>
 
 <body>
+  <nav class="site-switch" aria-label="Versión del itinerario"><a href="./" aria-current="page">Resumen</a><a href="./completo/">Itinerario completo</a></nav>
+  
   <div class="page">
     <header>
       <div class="header-row">
@@ -535,7 +561,7 @@
           <li class="stop">Biester Palace</li>
           <li class="stop pending">Palácio da Regaleira</li>
           <li class="stop">Vuelta a Lisboa</li>
-          <li class="stop pending">Noche · Espectáculo de fado</li>
+          <li class="stop">Noche · Fado y cena (propuesta: <a href="https://maps.app.goo.gl/d81BNEZna8vwJWhU8?g_st=ac" target="_blank" rel="noopener">Cocheira Alentejana</a>)</li>
         </ol>
       </section>
 
