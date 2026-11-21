@@ -28,8 +28,9 @@ jobs:
 
       - name: Prepare site
         run: |
-          mkdir -p _site
+          mkdir -p _site/completo
           cp viajes/2026-lisboa/itinerario-resumen.html _site/index.html
+          cp viajes/2026-lisboa/itinerario-completo.html _site/completo/index.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
