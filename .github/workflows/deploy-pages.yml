@@ -1,4 +1,4 @@
-name: Deploy Lisbon itinerary to GitHub Pages
+name: Deploy repository website to GitHub Pages
 
 on:
   push:
@@ -28,9 +28,10 @@ jobs:
 
       - name: Prepare site
         run: |
-          mkdir -p _site/completo
-          cp viajes/2026-lisboa/itinerario-resumen.html _site/index.html
-          cp viajes/2026-lisboa/itinerario-completo.html _site/completo/index.html
+          mkdir -p _site/viajes/2026-lisboa/completo
+          rsync -av --exclude='.git/' --exclude='.github/' --exclude='_site/' ./ _site/
+          cp viajes/2026-lisboa/itinerario-resumen.html _site/viajes/2026-lisboa/index.html
+          cp viajes/2026-lisboa/itinerario-completo.html _site/viajes/2026-lisboa/completo/index.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
